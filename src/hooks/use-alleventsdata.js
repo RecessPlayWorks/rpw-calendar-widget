@@ -1,0 +1,30 @@
+import { graphql, useStaticQuery } from 'gatsby'
+
+const useEvents = (searchParam) => {
+  const data = useStaticQuery(graphql`
+    query {
+      db: allMdx {
+        evtList: nodes {
+          event: frontmatter {
+            title
+            desc
+            startDate
+            tags
+            hours
+            slug
+            dates
+            daytag
+          }
+          excerpt
+        }
+      }
+    }`
+  );
+
+  var evtsArr = data.db.evtList;
+
+  return evtsArr;
+
+
+}
+export default useEvents
