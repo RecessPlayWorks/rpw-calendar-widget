@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react'
-import gsap, { Power0,Power4 } from 'gsap'
+import gsap, { Power0, Power4, Sine } from 'gsap'
 import moment from 'moment'
 import dayPreviewStyles from './daypreview.module.scss';
 import allEventsData from '../../hooks/use-alleventspreview'
@@ -22,10 +22,20 @@ const DayPreview = ({ previewDate }) => {
     // let hrRef = useRef(null)
     // let descRef = useRef(null)
     useEffect(() => {
-        var tl = gsap.timeline({ defaults: { duration: 3, delay: 0.1 } });
-        tl  .from(dateRef, 0.5,{ opacity: 0, ease: Power0.easeOut })
+        // var tl = gsap.timeline({ defaults: {  delay: 2 } });
+           gsap.set(dateRef,{opacity:0, y:-100})
+           gsap.set(listRef,{opacity:0, y:30})
+        //    gsap.to(dateRef, {opacity:1 , duration:1, y:0, ease: 'elastic(1,0.8)', delay: 0.5})
+        //    gsap.to(listRef, {opacity:1 , duration:0.5, y:0, ease: "back(1.4)", delay: 0.8})
+
+           const tl = gsap.timeline({defaults: {opacity: 1,y:0}})
+           tl.to(dateRef, { duration:1, ease: 'elastic(1,0.8)', delay: 0.5})
+             .to(listRef, { duration:1, ease: "back(1.4)", delay: 0.5})
+        
+        console.log("dateref: ", dateRef)
             
-            .from(listRef, .8,{ opacity: 0, ease: Power4.easeInOut }, '-=0.5')
+        // tl.from(['dateRef', 'listRef'], 0.5,{ opacity: 0, ease: Power0.easeOut })            
+        // .from(listRef, .8,{ opacity: 0, ease: Power4.easeInOut }, '-=0.5')
 
 
     }, [previewDate])
@@ -41,10 +51,9 @@ const DayPreview = ({ previewDate }) => {
 
         // <section className={dayPreviewStyles.section}>
         <div className={dayPreviewStyles.container}>
-            <h2
-                ref={elem => dateRef = elem}
+            <h1 ref={elem => dateRef = elem}
             >{moment(previewDate).format("MMM Do")}
-            </h2>
+            </h1>
             <ul ref={elem => listRef = elem}
                 className={dayPreviewStyles.previewList}>
                 {db.map((item, idx) => (
