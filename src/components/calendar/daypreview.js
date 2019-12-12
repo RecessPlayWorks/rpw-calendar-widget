@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import moment from 'moment'
 
-import dayPreviewStyles from './dayPreview.module.scss';
+import dayPreviewStyles from './daypreview.module.scss';
 import allEventsData from '../../hooks/use-alleventspreview'
 
 
