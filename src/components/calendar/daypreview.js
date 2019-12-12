@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react'
-import gsap, { Power0, Power4, Sine } from 'gsap'
+import { gsap } from "gsap";
 import moment from 'moment'
 import dayPreviewStyles from './daypreview.module.scss';
 import allEventsData from '../../hooks/use-alleventspreview'
@@ -7,8 +7,6 @@ import allEventsData from '../../hooks/use-alleventspreview'
 
 
 const DayPreview = ({ previewDate }) => {
-    // console.log("Bounce: ", Bounce)
-    // console.log("cust: ease", CustomEase)
     const [DBCallParameter, setDBCallParameter] = useState('default')
     
     useEffect(() => {
@@ -25,8 +23,7 @@ const DayPreview = ({ previewDate }) => {
         // var tl = gsap.timeline({ defaults: {  delay: 2 } });
            gsap.set(dateRef,{opacity:0, y:-100})
            gsap.set(listRef,{opacity:0, y:30})
-        //    gsap.to(dateRef, {opacity:1 , duration:1, y:0, ease: 'elastic(1,0.8)', delay: 0.5})
-        //    gsap.to(listRef, {opacity:1 , duration:0.5, y:0, ease: "back(1.4)", delay: 0.8})
+           
 
            const tl = gsap.timeline({defaults: {opacity: 1,y:0}})
            tl.to(dateRef, { duration:1, ease: 'elastic(1,0.8)', delay: 0.5})
