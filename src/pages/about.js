@@ -5,7 +5,7 @@ import Monthcalendar from '../components/calendar/monthcalendar'
 
 const About =() => {
     return (
-        <div>
+        <div >
             <Monthcalendar/>
         </div>
     )

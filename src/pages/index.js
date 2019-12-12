@@ -6,10 +6,11 @@ import {Link} from 'gatsby'
 
 
 const IndexPage = () => {
+  
   const events = useEvents();
   // console.log("Evts @ IndexPage: ", events)
   return(
-    <Layout>
+    <Layout >
       <h1>IndexPage</h1>
      <h2>read my events!</h2>
      <Link to="/about">Calendar</Link>

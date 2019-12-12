@@ -7,15 +7,20 @@
     margin: 1%;
     padding: 1%;
     font-weight: 300;
+    
     & > h2 {
+        opacity: 0;
         font-weight: 300;
         text-align: center;
         font-style: oblique;
     }
+    & > ul {
+        opacity: 0;
+    }
 }
 
-
 .preview-list {
+    opacity: 0;
     font-size: 1rem;
 }
 // @keyframes fadeIn {
