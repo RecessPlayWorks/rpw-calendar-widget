@@ -1,5 +1,7 @@
 import { graphql, useStaticQuery } from 'gatsby'
 
+
+/* THis file produces events in the listing ??*/
 const useEvents = (searchParam) => {
   const data = useStaticQuery(graphql`
     query {
