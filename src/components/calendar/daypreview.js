@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react'
-import { gsap } from "gsap";
+import gsap  from "gsap";
 import moment from 'moment';
 import dayPreviewStyles from './daypreview.module.scss';
 import allEventsData from '../../hooks/use-alleventspreview';
@@ -20,8 +20,8 @@ const DayPreview = ({ previewDate }) => {
 
         const tl = gsap.timeline({ defaults: { opacity: 1 } })
 
-        tl.to(dateRef, { duration: 1, y: 0, ease: 'elastic(1,0.8)', delay: 0.5 })
-          .to(listRef, { duration: 1, y: 0, ease: "back(1.4)" }, '-=0.5')
+        tl.to(dateRef, { duration: .6, y: 0, ease: 'elastic(1,0.8)', delay: 0.2 })
+          .to(listRef, { duration: .8, y: 0, ease: "back(1.4)" }, '-=0.5')
     }, [previewDate])
 
     const db = allEventsData(DBCallParameter)
